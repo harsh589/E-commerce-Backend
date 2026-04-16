@@ -15,6 +15,9 @@ public class OrderService {
 	private UserClient userClient;
 	@Autowired
 	private orderRepo Repo;
+	
+	@Autowired
+	private KafkaProducerService kafkaProducerService;
 
 	public orderResponseDto placeOrder(Long userId, Long productId , String token) {
 		try {
@@ -22,7 +25,8 @@ public class OrderService {
 			userDTO user = userClient.getUser(userId ,token);
 
 			// 🔥 2. Stock reduce karo
-			productClient.reduceStock(productId, 1, token);
+			OrderEvent event = new OrderEvent(productId, 1);
+			kafkaProducerService.sendOrderEvent(event);
 
 			orderModel order = new orderModel();
 			order.setUserId(userId);

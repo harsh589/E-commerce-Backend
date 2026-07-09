@@ -35,7 +35,7 @@ Powered by **Spring Cloud**, **Netflix Eureka**, **API Gateway**, **Apache Kafka
 
 ---
 
-## 📑 Table of Contents
+## 📑 Table of Content
 
 <details>
 <summary><strong>Click to expand</strong></summary>

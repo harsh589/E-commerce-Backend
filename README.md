@@ -71,7 +71,7 @@ The architecture emphasizes:
 - 📨 **Event-Driven Communication** — Kafka decouples services for scalability & resilience.
 - 🗄️ **Database per Service** — Independent MySQL persistence with Spring Data JPA.
 
-> 💼 _This project demonstrates real-world backend engineering concepts: distributed systems, inter-service communication, event streaming, and containerization._
+> 💼 _This project demonstrates real-world backend engineering concepts: distributed systems, inter-service communication, event streaming, and containerization.
 
 ---
 

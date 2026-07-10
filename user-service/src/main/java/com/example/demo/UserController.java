@@ -3,7 +3,8 @@ package com.example.demo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,27 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	@Autowired
-	
 	UserService service;
 	
 	
 	@PostMapping("/register")
-	public String registerUser(@RequestBody UserModel user) {
-		return service.register(user);
+	public ResponseEntity<String> registerUser(@RequestBody UserModel user) {
+		String msg =  service.register(user);
+		return ResponseEntity.status(HttpStatus.CREATED).body(msg);
 	}
 	
 	
 	@PostMapping("/login")
-	public String loginUser(@RequestBody UserModel user) {
-		return service.login(user);
+	public ResponseEntity<String> loginUser(@RequestBody UserModel user) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.login(user)); 
 	}
 	
-	
-	@PostMapping
-	public UserModel addUser(@RequestBody UserModel user) {
-		 return service.saveUser(user);
-		 
-	}
 	
 	@GetMapping
 	public List<UserModel> getall(){
@@ -50,8 +45,8 @@ public class UserController {
 	    }
 	 
 	 @DeleteMapping("/{id}")
-	 public String deleteUser(@PathVariable Long id) {
-		 return service.deleteUser(id);
+	 public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+		 return ResponseEntity.status(HttpStatus.OK).body(service.deleteUser(id));
 		 
 	 }
 	

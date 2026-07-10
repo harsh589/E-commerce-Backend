@@ -31,10 +31,7 @@ public class gatewayConfig {
                               .uri("lb://USER-SERVICE"))
 
                 // Order Service
-                .route("order-service",
-                        r -> r.path("/order/**")
-                              .filters(f -> f.filter(jwtFilter.apply(new Object())))
-                              .uri("lb://ORDER-SERVICE"))
+  
 
                 .route("order-service",
                         r -> r.path("/orders/**")

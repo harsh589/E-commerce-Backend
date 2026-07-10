@@ -23,11 +23,16 @@ public class OrderService {
 		try {
 			productDTO product = productClient.getProduct(productId , token);
 			userDTO user = userClient.getUser(userId ,token);
+			
+			
 
 			// 🔥 2. Stock reduce karo
-			OrderEvent event = new OrderEvent(productId, 1);
-			kafkaProducerService.sendOrderEvent(event);
+			//OrderEvent event = new OrderEvent(productId, 1);
+			//kafkaProducerService.sendOrderEvent(event);
 
+	           // 🔥 Kafka ki jagah ab Feign se stock kam karo
+            productClient.reduceStock(productId, 1, token); 
+			
 			orderModel order = new orderModel();
 			order.setUserId(userId);
 			order.setProductId(productId);

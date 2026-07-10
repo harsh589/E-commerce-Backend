@@ -7,7 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import java.security.Key;
 
 public class JwtUtil {
-
+//this is used to verify the jwt token of all the services
     private static final String SECRET = "mysecretkeymysecretkeymysecretkey"; // same as user-service
 
     private static final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());

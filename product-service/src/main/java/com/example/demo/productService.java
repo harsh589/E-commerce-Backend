@@ -19,6 +19,8 @@ public productModel save(productModel product) {
     return repo.save(product);
 }
 
+
+
 // get all products
 public List<productModel> getAllProducts() {
     return repo.findAll();

@@ -56,4 +56,10 @@ public class UserService {
 	    return repo.findById(id)
 	            .orElseThrow(() -> new RuntimeException("Product not found"));
 	}
+	
+	public String deleteUser(Long id) {
+		repo.deleteById(id);
+		return "user of id " + id + " is deleted";
+	}
+	
 }

@@ -26,12 +26,16 @@ public List<productModel> getAllProducts() {
     return repo.findAll();
 }
 
+
+
 // get product by id ✅
 	
 public productModel getById(Long id) {
     return repo.findById(id)
         .orElseThrow(() -> new ProductNotFoundException("Product not found with id " + id));
 }
+
+
 
 @PutMapping("/product/reduceStock")
 public String reduceStock(@RequestParam Long id,

@@ -18,10 +18,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            // ✅ CSRF disable (JWT use kar rahe ho)
+            // ✅ CSRF disable (we are using JWT)
             .csrf(csrf -> csrf.disable())
 
-            // ✅ Stateless session (JWT ke liye important)
+            //  Stateless session 
             .sessionManagement(session -> 
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )

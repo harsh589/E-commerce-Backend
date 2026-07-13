@@ -40,8 +40,8 @@ public class UserController {
 		
 	}
 	 @GetMapping("/{id}")
-	    public UserModel getById(@PathVariable Long id) {
-	        return service.getById(id);
+	    public ResponseEntity<UserModel> getById(@PathVariable Long id) {
+	        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.getById(id));
 	    }
 	 
 	 @DeleteMapping("/{id}")

@@ -37,7 +37,7 @@ public class UserService {
             return util.generateToken(user.getEmail());
         }
 
-        throw new RuntimeException("Invalid credentials");
+        throw new LoginFailed("Invalid credentials");
     }
 	
 	

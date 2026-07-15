@@ -8,6 +8,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+	
+	
+	public UserService(UserRepo repo, PasswordEncoder encoder, JwtUtil util) {
+	    this.repo = repo;
+	    this.encoder = encoder;
+	    this.util = util;
+	}
 
 	@Autowired
 	UserRepo repo;

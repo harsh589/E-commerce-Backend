@@ -35,8 +35,8 @@ public class UserController {
 	
 	
 	@GetMapping("all")
-	public List<UserModel> getall(){
-		return service.getAll();
+	public ResponseEntity<List<UserModel>> getall(){
+		return ResponseEntity.status(HttpStatus.OK).body(service.getAll());
 		
 	}
 	 @GetMapping("/{id}")

@@ -56,10 +56,9 @@ public class UserServiceTest {
         dbuser.setName("harsh");
         dbuser.setPassword("encodepassword");
 
-        // mock behaviour
+        // mock behaviour for not successfull login
         when(repo.findByEmail("test@gmail.com")).thenReturn(dbuser);
         when(encoder.matches("1234", "encodepassword")).thenReturn(false);
-
         assertThrows(LoginFailed.class, () -> service.login(input));
     }
 }

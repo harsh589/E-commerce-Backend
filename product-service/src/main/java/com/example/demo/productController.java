@@ -34,8 +34,8 @@ public class productController {
 
     // get by id (IMPORTANT ✅)
     @GetMapping("/{id}")
-    public productModel getById(@PathVariable Long id) {
-        return service.getById(id);
+    public  ResponseEntity<productModel> getById(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.SC_OK).body(service.getById(id));
     }
     
     //reduce stock

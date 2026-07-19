@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class productService {
 
@@ -36,7 +38,7 @@ public productModel getById(Long id) {
 }
 
 
-
+@Transactional
 @PutMapping("/product/reduceStock")
 public String reduceStock(@RequestParam Long id,
                           @RequestParam int quantity) {

@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "poduct_service")
@@ -16,11 +18,15 @@ public class productModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
+@NotNull(message="name can not be empty")
     private String name;
+
     private double price;
     private int stock;
     
+    //this is for the transactional 	
+    @Version
+    private Long version;
     
     
 	public productModel() {

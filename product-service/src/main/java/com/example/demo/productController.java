@@ -28,8 +28,8 @@ public class productController {
 
     // get all
     @GetMapping("/all")
-    public List<productModel> getAll() {
-        return service.getAllProducts();
+    public ResponseEntity<List<productModel>> getAll() {
+        return ResponseEntity.status(HttpStatus.SC_OK).body(service.getAllProducts());
     }
 
     // get by id (IMPORTANT ✅)
